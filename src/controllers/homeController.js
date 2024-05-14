@@ -2,17 +2,7 @@ const connection = require('../config/database')
 
 const getHomepage = (req, res) => {
 
-    let user = []
-    connection.query(
-        'SELECT * FROM Users u ',
-        function (err, results, fields) {
-            user = results
-            console.log("results =", results); // results contains rows returned by server
-            res.send(JSON.stringify(user))
-        }
-
-    );
-
+    return res.render('./home.ejs')
 }
 
 const getTuan = (req, res) => {
