@@ -1,5 +1,18 @@
+const connection = require('../config/database')
+
 const getHomepage = (req, res) => {
-    res.send('Hello World vs Tuan Tran')
+
+    let user = []
+    connection.query(
+        'SELECT * FROM Users u ',
+        function (err, results, fields) {
+            user = results
+            console.log("results =", results); // results contains rows returned by server
+            res.send(JSON.stringify(user))
+        }
+
+    );
+
 }
 
 const getTuan = (req, res) => {
